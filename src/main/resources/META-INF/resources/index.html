@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onnxmodelloader - 1.0.0-SNAPSHOT</title>
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem
+        }
+
+        h3 {
+            font-size: 1.75rem
+        }
+
+        h4 {
+            font-size: 1.5rem
+        }
+
+        h5 {
+            font-size: 1.25rem
+        }
+
+        h6 {
+            font-size: 1rem
+        }
+
+        .lead {
+            font-weight: 300;
+            font-size: 2rem;
+        }
+
+        .banner {
+            font-size: 2.7rem;
+            margin: 0;
+            padding: 2rem 1rem;
+            background-color: #0d1c2c;
+            color: white;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        code {
+            font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 87.5%;
+            color: #e83e8c;
+            word-break: break-word;
+        }
+
+        .left-column {
+            padding: .75rem;
+            max-width: 75%;
+            min-width: 55%;
+        }
+
+        .right-column {
+            padding: .75rem;
+            max-width: 25%;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        li {
+            margin: 0.75rem;
+        }
+
+        .right-section {
+            margin-left: 1rem;
+            padding-left: 0.5rem;
+        }
+
+        .right-section h3 {
+            padding-top: 0;
+            font-weight: 200;
+        }
+
+        .right-section ul {
+            border-left: 0.3rem solid #71aeef;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .examples {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px 0 20px -40px;
+        }
+
+        .example {
+            display: flex;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            flex-direction: column;
+            width: 350px;
+            background-color: #205894;
+            color: white;
+        }
+
+        .example code {
+            color: lightgrey;
+        }
+
+        .example-header {
+            padding: 20px;
+            display: flex;
+            position: relative;
+        }
+
+        .example-header h4 {
+            margin: 0;
+            font-size: 1.4rem;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .example-description {
+            padding: 0 20px;
+            flex-grow: 1;
+        }
+
+        .example-paths {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .example-paths a {
+            display: block;
+            background-color: transparent;
+            font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .example-paths a:before {
+            content: '⇨';
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 20px;
+        }
+
+        .example-paths a:hover {
+            background-color: #0d1c2c;
+        }
+
+        .guide-link {
+            background-color: #71aeef;
+            position: absolute;
+            color: white;
+            text-decoration: none;
+            top: 0;
+            right: 0;
+            padding: 7px;
+            font-weight: bold;
+        }
+
+        .guide-link:hover {
+            background-color: #0d1c2c;
+        }
+    </style>
+</head>
+<body>
+2021-01-19 16:27:22.597303301 [W:onnxruntime:, graph.cc:1069 Graph] Initializer const_fold_opt__31 appears in graph inputs and will not be treated as constant value/weight. This may prevent some of the graph optimizations, like const folding. Move it out of graph inputs if there is no need to override it, by either re-generating the model with latest exporter/converter or with the tool onnxruntime/tools/python/remove_initializer_from_input.py.
+2021-01-19 16:27:22.597349523 [W:onnxruntime:, graph.cc:1069 Graph] Initializer StatefulPartitionedCall/sequential_1/rescaling/Cast_1/x:0 appears in graph inputs and will not be treated as constant value/weight. This may prevent some of the graph optimizations, like const folding. Move it out of graph inputs if there is no need to override it, by either re-generating the model with latest exporter/converter or with the tool onnxruntime/tools/python/remove_initializer_from_input.py.
+2021-01-19 16:27:22.597353551 [W:onnxruntime:, graph.cc:1069 Graph] Initializer StatefulPartitionedCall/sequential_1/rescaling/Cast/x:0 appears in graph inputs and will not be treated as constant value/weight. This may prevent some of the graph optimizations, like const folding. Move it out of graph inputs if there is no need to override it, by either re-generating the model with latest exporter/converter or with the tool onnxruntime/tools/python/remove_initializer_from_input.py.
+2021-01-19 16:27:22.597359115 [W:onnxruntime:, graph.cc:1069 Graph] Initializer StatefulPartitionedCall/sequential_1/dense_1/MatMul/ReadVariableOp:0 appears in graph inputs and will not be treated as constant value/weight. This may prevent some of the graph optimizations, like const folding. Move it out of graph inputs if there is no need to override it, by either re-generating the model with latest exporter/converter or with the tool onnxruntime/tools/python/remove_initializer_from_input.py.
+2021-01-19 16:27:22.597363137 [W:onnxruntime:, graph.cc:1069 Graph] Initializer StatefulPartitionedCall/sequential_1/dense_1/BiasAdd/ReadVariableOp:0 appears in graph inputs and will not be treated as constant value/weight. This may prevent some of the graph optimizations, like const folding. Move it out of graph inputs if there is no need to override it, by either re-generating the model with latest exporter/converter or with the tool onnxruntime/tools/python/remove_initializer_from_input.py.
+2021-01-19 16:27:22.597366086 [W:onnxruntime:, graph.cc:1069 Graph] Initializer StatefulPartitionedCall/sequential_1/dense/MatMul/ReadVariableOp:0 appears in graph inputs and will not be treated as constant value/weight. This may prevent some of the graph optimizations, like const folding. Move it out of graph inputs if there is no need to override it, by either re-generating the model with latest exporter/converter or with the tool onnxruntime/tools/python/remove_initializer_from_input.py.
+2021-01-19 16:27:22.597369442 [W:onnxruntime:, graph.cc:1069 Graph] Initializer StatefulPartitionedCall/sequential_1/dense/BiasAdd/ReadVariableOp:0 appears in graph inputs and will not be treated as constant value/weight. This may prevent some of the graph optimizations, like const folding. Move it out of graph inputs if there is no need to override it, by either re-generating the model with latest exporter/converter or with the tool onnxruntime/tools/python/remove_initializer_from_input.py.
+2021-01-19 16:27:22.597372723 [W:onnxruntime:, graph.cc:1069 Graph] Initializer StatefulPartitionedCall/sequential_1/conv2d_2/Conv2D/ReadVariableOp:0 appears in graph inputs and will not be treated as constant value/weight. This may prevent some of the graph optimizations, like const folding. Move it out of graph inputs if there is no need to override it, by either re-generating the model with latest exporter/converter or with the tool onnxruntime/tools/python/remove_initializer_from_input.py.
+2021-01-19 16:27:22.597376268 [W:onnxruntime:, graph.cc:1069 Graph] Initializer StatefulPartitionedCall/sequential_1/conv2d_2/BiasAdd/ReadVariableOp:0 appears in graph inputs and will not be treated as constant value/weight. This may prevent some of the graph optimizations, like const folding. Move it out of graph inputs if there is no need to override it, by either re-generating the model with latest exporter/converter or with the tool onnxruntime/tools/python/remove_initializer_from_input.py.
+2021-01-19 16:27:22.597379792 [W:onnxruntime:, graph.cc:1069 Graph] Initializer StatefulPartitionedCall/sequential_1/conv2d_1/Conv2D/ReadVariableOp:0 appears in graph inputs and will not be treated as constant value/weight. This may prevent some of the graph optimizations, like const folding. Move it out of graph inputs if there is no need to override it, by either re-generating the model with latest exporter/converter or with the tool onnxruntime/tools/python/remove_initializer_from_input.py.
+2021-01-19 16:27:22.597383968 [W:onnxruntime:, graph.cc:1069 Graph] Initializer StatefulPartitionedCall/sequential_1/conv2d_1/BiasAdd/ReadVariableOp:0 appears in graph inputs and will not be treated as constant value/weight. This may prevent some of the graph optimizations, like const folding. Move it out of graph inputs if there is no need to override it, by either re-generating the model with latest exporter/converter or with the tool onnxruntime/tools/python/remove_initializer_from_input.py.
+2021-01-19 16:27:22.597388142 [W:onnxruntime:, graph.cc:1069 Graph] Initializer StatefulPartitionedCall/sequential_1/conv2d/Conv2D/ReadVariableOp:0 appears in graph inputs and will not be treated as constant value/weight. This may prevent some of the graph optimizations, like const folding. Move it out of graph inputs if there is no need to override it, by either re-generating the model with latest exporter/converter or with the tool onnxruntime/tools/python/remove_initializer_from_input.py.
+2021-01-19 16:27:22.597390913 [W:onnxruntime:, graph.cc:1069 Graph] Initializer StatefulPartitionedCall/sequential_1/conv2d/BiasAdd/ReadVariableOp:0 appears in graph inputs and will not be treated as constant value/weight. This may prevent some of the graph optimizations, like const folding. Move it out of graph inputs if there is no need to override it, by either re-generating the model with latest exporter/converter or with the tool onnxruntime/tools/python/remove_initializer_from_input.py.
+key: sequential_input:0 Value: TensorInfo(javaType=FLOAT,onnxType=ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT,shape=[-1, 469, 470, 3])
+</body>
+</html>
