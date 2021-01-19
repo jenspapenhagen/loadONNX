@@ -34,7 +34,7 @@ public class GreetingResource {
             final OrtSession session = environment.createSession(modelPath, new OrtSession.SessionOptions());
             if(session == null){
                 log.error("model not found");
-                return null;
+                return "";
             }
             final Map<String, NodeInfo> inputInfo = session.getInputInfo();
             //getShapeOfNodeInfo(inputInfo);
