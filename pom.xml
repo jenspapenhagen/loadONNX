@@ -52,7 +52,7 @@
         <dependency>
             <groupId>com.microsoft.onnxruntime</groupId>
             <artifactId>onnxruntime</artifactId>
-            <version>1.17.3</version>
+            <version>1.18.0</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
